@@ -1,18 +1,18 @@
 <template>
   <div class="blog-card">
     <div class="card-image">
-      <img class="img" src="../assets/blog-image.jpg" alt="card title" />
+      <div class="ration-content">
+        <img class="img" :src="data.image" alt="data.title" />
+      </div>
     </div>
     <div class="card-content">
       <h1 class="card-title">
-        Card Title
+        {{ data.title }}
       </h1>
-      <p class="card-description">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Repellat illum,
-        corporis, doloremque fugit et quaerat voluptatem debitis sequi tempora
-        atque sint magni ab culpa, quasi ipsam illo non. Tempore, ut.
+      <p class="card-summery">
+        {{ data.summary }}
       </p>
-      <a href="#">
+      <a class="Continue" href="#">
         Continue reading
       </a>
     </div>
@@ -22,7 +22,11 @@
 <script>
 export default {
   name: "BlogCard",
-  props: {},
+  props: {
+    data: {
+      required: true,
+    },
+  },
 };
 </script>
 
@@ -33,9 +37,42 @@ export default {
   box-sizing: border-box;
   padding: 30px 10px;
   .card-image {
+    position: relative;
+    &::before {
+      content: "";
+      display: block;
+      padding-top: 66.5%;
+    }
+    .ration-content {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      overflow: hidden;
+      border-radius: 8px;
+    }
     .img {
       width: 100%;
-      border-radius: 8px;
+      min-height: 100%;
+    }
+  }
+  .card-content {
+    padding: 5px;
+    .card-title {
+      font-size: 20px;
+      color: #990099;
+      font-weight: bold;
+      padding: 10px 0;
+    }
+    .card-summery {
+      color: #a39c9c;
+      font-size: 18px;
+    }
+    .Continue {
+      font-style: italic;
+      font-size: 16px;
+      font-weight: 400;
     }
   }
 }
