@@ -1,15 +1,15 @@
 <template>
   <div class="header">
-    <h1>Blog</h1>
+    <slot>
+      <h1>Blog</h1>
+    </slot>
   </div>
 </template>
 
 <script>
 export default {
   name: "AppHeader",
-  props: {
-
-  },
+  props: {},
 };
 </script>
 
@@ -24,7 +24,7 @@ export default {
   background-size: cover;
   position: relative;
   z-index: 5;
-  &::after{
+  &::after {
     content: "";
     display: block;
     position: absolute;
@@ -32,13 +32,25 @@ export default {
     left: 0;
     right: 0;
     bottom: 0;
-    opacity: .95; 
+    opacity: 0.95;
     //Generate Gradiant from ColorZila Website //
     /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#330033+0,333366+100 */
     background: #330033; /* Old browsers */
-    background: -moz-linear-gradient(top,  #330033 0%, #333366 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(top,  #330033 0%,#333366 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to bottom,  #330033 0%,#333366 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    background: -moz-linear-gradient(
+      top,
+      #330033 0%,
+      #333366 100%
+    ); /* FF3.6-15 */
+    background: -webkit-linear-gradient(
+      top,
+      #330033 0%,
+      #333366 100%
+    ); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(
+      to bottom,
+      #330033 0%,
+      #333366 100%
+    ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#330033', endColorstr='#333366',GradientType=0 ); /* IE6-9 */
   }
   h1 {

@@ -12,9 +12,9 @@
       <p class="card-summery">
         {{ data.summary }}
       </p>
-      <a class="Continue" href="#">
+      <router-link class="Continue" :to="`/blog/${data.id}`">
         Continue reading
-      </a>
+      </router-link>
     </div>
   </div>
 </template>
